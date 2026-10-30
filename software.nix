@@ -5,6 +5,7 @@ imports = [
 inputs.spicetify-nix.nixosModules.default
 inputs.nix-index-database.nixosModules.nix-index
 ];
+
 environment.systemPackages = with pkgs; [
 slack
 neovim
@@ -14,6 +15,7 @@ home-manager
 swaybg
 swaylock-effects
 xwayland-satellite
+thunderbird
 ferdium
 wpaperd
 blueman
@@ -27,6 +29,7 @@ grim
 slurp
 cava
 cosmic-files
+cifs-utils
 ];
 
 programs.xwayland.enable = true;

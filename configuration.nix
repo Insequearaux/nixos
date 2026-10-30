@@ -12,14 +12,14 @@
       ./de.nix
       ./realm.nix
       ./sddm.nix
+      ./secrets/secrets.nix
+      ./mount.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  users.users."ets-c837622227".openssh.authorizedKeys.keys = [
-  ];
 
   services.openssh = {
     enable = true;
@@ -45,10 +45,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-fileSystems."/mnt/labs-fog" = {
-  device = "//labs-fog.engr.colostate.edu";
-    fsType = "cifs";
-};
 
   # Set your time zone.
   time.timeZone = "America/Denver";
@@ -106,7 +102,7 @@ fileSystems."/mnt/labs-fog" = {
   users.users."ets-c837622227" = {
     isNormalUser = true;
     description = "taylor";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "plugdev" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
