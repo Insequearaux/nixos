@@ -30,6 +30,7 @@ slurp
 cava
 cosmic-files
 cifs-utils
+inputs.agenix.packages.x86_64-linux.default
 ];
 
 programs.xwayland.enable = true;

@@ -12,7 +12,6 @@
       ./de.nix
       ./realm.nix
       ./sddm.nix
-      ./secrets/secrets.nix
       ./mount.nix
     ];
 
