@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./software.nix
       ./de.nix
+      ./realm.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -23,6 +24,13 @@
     enable = true;
   };
 
+
+  networking.firewall = {
+    allowedUDPPorts = [21027 22000];
+    allowedTCPPorts = [22000];
+
+
+  };
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 

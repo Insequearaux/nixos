@@ -3,6 +3,7 @@
 {
 imports = [
 inputs.spicetify-nix.nixosModules.default
+inputs.nix-index-database.nixosModules.nix-index
 ];
 environment.systemPackages = with pkgs; [
 slack
@@ -31,6 +32,7 @@ cosmic-files
 programs.xwayland.enable = true;
 programs.steam.enable = true;
 
+programs.nix-index-database.comma.enable = true;
 
 programs.nh = {
   enable = true;
@@ -65,9 +67,6 @@ programs.spicetify =
 	];
 	enabledCustomApps = with spicePkgs.apps; [
 		lyricsPlus
-		localFiles
-		betterLibrary
-
 	];
 
 
