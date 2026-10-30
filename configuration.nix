@@ -11,6 +11,7 @@
       ./software.nix
       ./de.nix
       ./realm.nix
+      ./sddm.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
