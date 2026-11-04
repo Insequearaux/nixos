@@ -24,6 +24,11 @@
     enable = true;
   };
 
+  services.xrdp = {
+    enable = true;
+    #defaultWindowManager = "${pkgs.niri}/bin/sh"
+    openFirewall = true;
+  };
 
   networking.firewall = {
     allowedUDPPorts = [21027 22000];

@@ -1,9 +1,13 @@
 {pkgs,inputs,...}:
-
+let
+system = pkgs.system;
+in
 {
 imports = [
 inputs.spicetify-nix.nixosModules.default
-inputs.nix-index-database.nixosModules.nix-index
+inputs.nix-index-database.nixosModules.default
+inputs.waveforms.nixosModule
+inputs.agenix.nixosModules.default
 ];
 
 environment.systemPackages = with pkgs; [
@@ -13,7 +17,10 @@ vim
 alacritty
 home-manager
 swaybg
+gimp
+xdg-utils
 swaylock-effects
+libreoffice
 xwayland-satellite
 thunderbird
 ferdium
@@ -27,11 +34,17 @@ git
 direnv
 grim
 slurp
+satty
 cava
-cosmic-files
+kdePackages.dolphin
 cifs-utils
 inputs.agenix.packages.x86_64-linux.default
+inputs.nfsm-flake.packages.${system}.nfsm
+inputs.nfsm-flake.packages.${system}.nfsm-cli
+jdk
+waylandar
 ];
+nixpkgs.overlays = [ inputs.waylandar.overlays.default ];
 
 programs.xwayland.enable = true;
 programs.steam.enable = true;

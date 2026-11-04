@@ -7,20 +7,49 @@
     waveforms.url =  "path:/home/ets-c837622227/Documents/waveforms-flake/waveforms-flake";
     nix-index-database.url = "github:nix-community/nix-index-database";
     agenix.url = "github:ryantm/agenix";
+    waylandar.url = "github:samjoshuadud/waylandar";
+    nfsm-flake = {
+      url = "github:gvolpe/nfsm";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    easy-hosts.url = "github:tgirlcloud/easy-hosts";
+    import-tree.url = "github:denful/import-tree";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    self = {};
   };
 
 
-  outputs = inputs: {
-	nixosConfigurations.clay = inputs.nixpkgs.lib.nixosSystem {
-		modules = [
-                  ./configuration.nix
-                  inputs.waveforms.nixosModule
-                  inputs.agenix.nixosModules.default
-                ];
-		specialArgs = {
-			inputs = inputs;
-		};
+  outputs = inputs: 
 
-	};
-  };
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+
+      imports = [
+        inputs.easy-hosts.flakeModule
+      ]; 
+
+      easy-hosts = {
+        shared = {
+          modules = [
+            (inputs.import-tree ./hosts/common)
+          ];
+        };
+        hosts =  {
+          clay = {
+            modules = [
+              (inputs.import-tree ./hosts/clay)
+            ];
+          };
+          girl-in-shell = {
+            modules = [
+              (inputs.import-tree ./hosts/girl-in-shell)
+            ];
+          };
+          kurisu = {
+            modules = [
+              (inputs.import-tree ./hosts/clay/kurisu)
+            ];
+          };
+        };
+      };
+    };
 }
