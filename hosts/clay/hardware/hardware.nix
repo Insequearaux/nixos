@@ -7,15 +7,18 @@
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
-
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot = {
+    initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
+    initrd.kernelModules = [ ];
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [ ];
+    resumeDevice = "/dev/nvme0n1p3";
+  };
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/9b13f2a8-7d11-48d4-92e0-8012be3db06b";
       fsType = "ext4";
+      label = "nanachi";
     };
 
   fileSystems."/boot" =
