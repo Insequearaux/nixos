@@ -47,7 +47,6 @@
           kurisu = {
             modules = [
               (inputs.import-tree ./hosts/kurisu)
-	      ./hosts/kurisu/environment/user.nix
             ];
           };
         };
