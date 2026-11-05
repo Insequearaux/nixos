@@ -4,4 +4,5 @@
     description = "taylor";
     extraGroups = [ "networkmanager" "wheel" "plugdev" ];
   };
+  networking.hostName = "clay"; # Define your hostname.
 }

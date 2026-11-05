@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    waveforms.url =  "path:/home/ets-c837622227/Documents/waveforms-flake/waveforms-flake";
+    #waveforms.url =  "path:/home/ets-c837622227/Documents/waveforms-flake/waveforms-flake";
     nix-index-database.url = "github:nix-community/nix-index-database";
     agenix.url = "github:ryantm/agenix";
     waylandar.url = "github:samjoshuadud/waylandar";
@@ -46,7 +46,8 @@
           };
           kurisu = {
             modules = [
-              (inputs.import-tree ./hosts/clay/kurisu)
+              (inputs.import-tree ./hosts/kurisu)
+	      ./hosts/kurisu/environment/user.nix
             ];
           };
         };

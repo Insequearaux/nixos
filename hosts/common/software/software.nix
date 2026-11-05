@@ -3,8 +3,8 @@
   imports = [
     inputs.spicetify-nix.nixosModules.default
       inputs.nix-index-database.nixosModules.default
-      inputs.waveforms.nixosModule
-      inputs.agenix.nixosModules.default
+      #inputs.waveforms.nixosModule
+      #inputs.agenix.nixosModules.default
   ];
   environment.systemPackages = with pkgs; [
     slack

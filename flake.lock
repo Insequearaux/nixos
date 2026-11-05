@@ -202,19 +202,6 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1793225069,
-        "narHash": "sha256-GYpArmwi/iMuX2ov31oCBhAXRMJdNX9kOl2LZHCuR6M=",
-        "rev": "e62746b0b472753ef019baceab6f1e2e52014980",
-        "type": "tarball",
-        "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1104102.e62746b0b472/nixexprs.tar.zst"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
-      }
-    },
-    "nixpkgs_6": {
-      "locked": {
         "lastModified": 1791956154,
         "narHash": "sha256-jBYGPi4udQ9uo4KQp9m2J0546nJVQitG15gvZSaVVAs=",
         "owner": "NixOS",
@@ -239,7 +226,6 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_3",
         "spicetify-nix": "spicetify-nix",
-        "waveforms": "waveforms",
         "waylandar": "waylandar"
       }
     },
@@ -292,24 +278,9 @@
         "type": "github"
       }
     },
-    "waveforms": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_5"
-      },
-      "locked": {
-        "lastModified": 1793379777,
-        "narHash": "sha256-LcXJlEA5gsje/Hm4DKWP+flSZm2z8B2aw3cEdXefnlg=",
-        "path": "/home/ets-c837622227/Documents/waveforms-flake/waveforms-flake",
-        "type": "path"
-      },
-      "original": {
-        "path": "/home/ets-c837622227/Documents/waveforms-flake/waveforms-flake",
-        "type": "path"
-      }
-    },
     "waylandar": {
       "inputs": {
-        "nixpkgs": "nixpkgs_6"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1792911450,
