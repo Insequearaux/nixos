@@ -18,7 +18,6 @@
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/9b13f2a8-7d11-48d4-92e0-8012be3db06b";
       fsType = "ext4";
-      label = "nanachi";
     };
 
   fileSystems."/boot" =

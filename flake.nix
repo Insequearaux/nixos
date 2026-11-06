@@ -15,6 +15,12 @@
     easy-hosts.url = "github:tgirlcloud/easy-hosts";
     import-tree.url = "github:denful/import-tree";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    nixos-hardware = {
+      url = "github:NixOs/nixos-hardware";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager.url = "github:nix-community/home-manager";
+    my-home-manager.url = "path:./home-manager/";
     self = {};
   };
 
@@ -25,8 +31,10 @@
 
       imports = [
         inputs.easy-hosts.flakeModule
-      ]; 
+        inputs.home-manager.flakeModules.home-manager
+      ];
 
+     flake = {homeConfigurations = inputs.my-home-manager.homeConfigurations;};
       easy-hosts = {
         shared = {
           modules = [
