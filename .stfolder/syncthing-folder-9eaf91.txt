@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: dotconfig
+created: 2026-11-05T12:17:42-07:00
