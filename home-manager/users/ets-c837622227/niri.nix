@@ -3,9 +3,6 @@
 
   wayland.windowManager.niri = {
     settings = {
-      layout = {
-        gaps = 16;
-      };
       _children = [
       {
         output = {

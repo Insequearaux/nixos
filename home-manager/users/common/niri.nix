@@ -1,19 +1,10 @@
 {pkgs, ...}:
 {
 
-
   wayland.windowManager.niri = {
 
     enable = true;	
 
-    extraConfig = ''
-      include "${./niri.kdl}" 
-      spawn-at-startup "blueman-applet"
-      spawn-sh-at-startup "nfsm &"
-      prefer-no-csd
-      spawn-sh-at-startup "wl-paste --watch cliphist store"
-      spawn-at-startup "systemctl restart --user swayidle"
-      '';
     settings = {
 
 
@@ -40,9 +31,15 @@
         "Mod+Shift+C" = {
           spawn = ["waylandar-dashboard"];
         };
-        "Mod+Shift+Tab".toggle-overview = [];
       };
     };
+    extraConfig = ''
+      include "${./niri.kdl}" 
+      spawn-at-startup "blueman-applet"
+      spawn-at-startup "nfsm"
+      prefer-no-csd
+      spawn-sh-at-startup "wl-paste --watch cliphist store"
+      '';
   };
 
 

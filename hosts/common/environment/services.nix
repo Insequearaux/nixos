@@ -53,7 +53,6 @@
     };
     extraHosts = ''
     10.1.224.83 clay
-    10.184.153.231 kurisu
     '';
   };
   security.rtkit.enable = true;

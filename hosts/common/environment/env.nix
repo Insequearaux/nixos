@@ -1,4 +1,4 @@
-{pkgs,inputs,lib,...}:
+{pkgs,inputs,...}:
 let
 system = pkgs.system;
 in
@@ -15,14 +15,12 @@ in
       grim
       slurp
       cava
-      #kdePackages.dolphin
+      kdePackages.dolphin
       cifs-utils
       inputs.agenix.packages.x86_64-linux.default
       inputs.nfsm-flake.packages.${system}.nfsm
       inputs.nfsm-flake.packages.${system}.nfsm-cli
       jdk
-      xdg-desktop-portal
-      brightnessctl
       ];
   programs = {
     xwayland = {
@@ -75,15 +73,8 @@ services.blueman.enable = true;
       };
     };
   };
-environment.variables = {
- NH_FLAKE = "/etc/nixos";
- NH_HOME_FLAKE = "/etc/nixos";
-};
-#system.activationScripts = {
-#  homeswitch.text = ''
-#     ${lib.getExe pkgs.nh} home switch -- --flake /etc/nixos
-#    '';
-#};
+
+
 
 
 

@@ -1,9 +1,9 @@
-{self,...}:{
+{
   services.wpaperd = {
       enable = true;
       settings = {
 	eDP-1 = {
-		path = "${self}/wallpapers/main.jpg";
+		path = "/home/taylor/.config/home-manager/wallpapers/main.jpg";
       };
     };
 };

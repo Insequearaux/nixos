@@ -6,7 +6,6 @@
     home_manager.url = "github:nix-community/home-manager";
     import-tree.url = "github:denful/import-tree";
     flake-parts.url = "github:hercules-ci/flake-parts"; 
-    self = {};
   };
 
 
@@ -18,9 +17,6 @@ let
       (inputs.import-tree ./users/common)
       (inputs.import-tree ./users/${username})
     ];
-    extraSpecialArgs = {
-    self = inputs.self;
-  };
   };
 in
   {

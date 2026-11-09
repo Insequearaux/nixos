@@ -25,6 +25,7 @@
           id = "dotconfig";
           ignorePatterns = [
           "!/nvim"
+          "!/home-manager"
           "*" 
           ];
         };
@@ -32,11 +33,6 @@
           path = "/etc/nixos";
           devices = ["clay" "kurisu"];
           id = "etcnixoscfg";
-          copyOwnershipFromParent = false;
-          ignorePerms = true;
-          ignorePatterns = [
-            ".git"
-          ];
         };
       };
     };

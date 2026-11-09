@@ -9,16 +9,10 @@
     inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
     ];
 
-
-  boot = {
-
-  initrd.availableKernelModules = [ "nvme" "xhci_pci" ];
-  initrd.kernelModules = [ ];
-  kernelModules = [ "kvm-amd" ];
-  extraModulePackages = [ ];
-  resumeDevice = "/dev/disk/by-label/nono";
-
-  };
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-amd" ];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/d9def0ca-26a9-4f57-83d3-0607b284647e";
@@ -45,12 +39,6 @@
     size = 16*1024;
   }];
 
-  
-
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
 }
