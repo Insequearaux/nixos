@@ -9,6 +9,7 @@
         shadow = "drop";
         button-variant = "basic";
         button-bg-opacity = 0;
+        scale = 0.85;
         layout = [
         {
           monitor = "*";
@@ -50,8 +51,8 @@
       };
       modules = {
         battery = {
-          icon-show = false;
-          label-show = false;
+          icon-show = true;
+          label-show = true;
         };
         niri-workspaces = {
           display-mode = "icon";

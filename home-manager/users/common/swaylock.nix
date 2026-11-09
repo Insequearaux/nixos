@@ -8,8 +8,6 @@
       screenshots = true;
       clock = true;
       indicator = true;
-      grace = 5;
-      fade-in = 1;
       effect-blur = "10x5";
       effect-scale = 1.1;
       indicator-caps-lock = true;

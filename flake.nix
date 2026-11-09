@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "taylors nixos config";
 
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
