@@ -1,6 +1,9 @@
 {pkgs,...}:
 {
   services = {
+    upower = {
+      enable = true;
+    };
 
     openssh = {
       enable = true;

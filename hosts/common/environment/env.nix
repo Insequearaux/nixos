@@ -23,6 +23,7 @@ in
       jdk
       xdg-desktop-portal
       brightnessctl
+      xdg-desktop-portal-termfilechooser
       ];
   programs = {
     xwayland = {
@@ -47,6 +48,7 @@ in
     };
     niri = {
       enable = true;
+      useNautilus = false;
     };
   };
 
