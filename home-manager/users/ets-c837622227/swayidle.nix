@@ -13,7 +13,9 @@
     in {
     enable = true;
     systemdTargets = [
-      "niri-session.target"
+      "graphical.target"
+      "graphical-session.target"
+
     ];
       events = {     
         "before-sleep" = "${lock}";
@@ -31,5 +33,12 @@
           resumeCommand = monitorsOn;
         }
       ];
+    };
+    systemd.user.services.swayidle = {
+      Unit = {
+        After = [ "graphical-session.target" ];
+        PartOf = [ "graphical-session.target" ];
+        WantedBt = [ "graphical-session.target" ];
+      };
     };
   }

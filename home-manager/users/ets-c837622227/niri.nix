@@ -68,6 +68,7 @@
     ];
     environment = {
       NFSM_SOCKET = "/run/user/1001/nfsm.sock";
+      EDITOR = "nvim";
     };
     };
     extraConfig = ''

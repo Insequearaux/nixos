@@ -463,9 +463,6 @@ cursor {
   xcursor-theme "breeze_cursors"
   xcursor-size 24
 }
-environment {
-      EDITOR "nvim"
-}
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
