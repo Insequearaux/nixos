@@ -40,7 +40,7 @@
       Unit = {
         After = [ "graphical-session.target" ];
         PartOf = [ "graphical-session.target" ];
-        WantedBt = [ "graphical-session.target" ];
+        WantedBy = [ "graphical-session.target" ];
       };
     };
   }
