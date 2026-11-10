@@ -25,7 +25,6 @@
           id = "dotconfig";
           ignorePatterns = [
           "!/nvim"
-          "!/home-manager"
           "*" 
           ];
         };

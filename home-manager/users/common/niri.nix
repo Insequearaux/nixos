@@ -31,7 +31,7 @@
           spawn = ["firefox"];
         };
         "Mod+Shift+N" = {
-          spawn-sh = ["alacritty - e nvim"];
+          spawn-sh = ["alacritty -e nvim"];
         };
         "Mod+Period" = {
           spawn = ["emote"];
