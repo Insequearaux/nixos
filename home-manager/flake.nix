@@ -27,6 +27,7 @@ in
 	homeConfigurations = {
           "ets-c837622227@clay" = mkUser "ets-c837622227";
           "taylor@kurisu" = mkUser "taylor";
+	  "epicyurimomentsandaura@girl-in-shell" = mkUser "epicyurimomentsandaura";
 	};
   };
 }
