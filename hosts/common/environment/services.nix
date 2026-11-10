@@ -1,11 +1,18 @@
 {pkgs,...}:
 {
+  powerManagement.enable = true;
   services = {
   blueman.enable = true;
 
     upower = {
       enable = true;
     };
+    libinput.enable = true;
+    thermald = {
+      enable = true;
+    };
+    power-profiles-daemon.enable = true;
+
 
     openssh = {
       enable = true;

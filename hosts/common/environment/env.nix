@@ -56,6 +56,9 @@ in
       enable = true;
       useNautilus = false;
     };
+    zsh = {
+      enable = true;
+    };
   };
 
 
