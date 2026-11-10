@@ -96,7 +96,7 @@
         offline_credentials_expiration = 365
 
         [domain/engr.colostate.edu]
-        override_shell = ${pkgs.zsh} 
+        override_shell = ${lib.getExe pkgs.zsh} 
         override_homedir = /home/%u
         krb5_store_password_if_offline = true
         cache_credentials = true

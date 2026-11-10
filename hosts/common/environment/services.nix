@@ -1,6 +1,8 @@
 {pkgs,...}:
 {
   services = {
+  blueman.enable = true;
+
     upower = {
       enable = true;
     };

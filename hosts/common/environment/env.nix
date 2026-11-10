@@ -3,7 +3,8 @@ let
 system = pkgs.system;
 in
 {
-  environment.systemPackages = with pkgs; [
+  environment = {
+    systemPackages = with pkgs; [
       home-manager
       xdg-utils
       xwayland-satellite
@@ -25,6 +26,11 @@ in
       brightnessctl
       xdg-desktop-portal-termfilechooser
       ];
+    variables = {
+      NH_FLAKE = "/etc/nixos";
+      NH_HOME_FLAKE = "/etc/nixos";
+    };
+  };
   programs = {
     xwayland = {
       enable = true;
@@ -52,19 +58,7 @@ in
     };
   };
 
-hardware.bluetooth = {
 
-	enable = true;
-	powerOnBoot = true;
-	settings = {
-		General = {
-			Experimental = true;
-		};
-	};
-
-};
-
-services.blueman.enable = true;
   fonts = {
     enableDefaultPackages = true;
     packages = [pkgs.nerd-fonts.droid-sans-mono];
@@ -77,10 +71,8 @@ services.blueman.enable = true;
       };
     };
   };
-environment.variables = {
- NH_FLAKE = "/etc/nixos";
- NH_HOME_FLAKE = "/etc/nixos";
-};
+
+
 #system.activationScripts = {
 #  homeswitch.text = ''
 #     ${lib.getExe pkgs.nh} home switch -- --flake /etc/nixos
