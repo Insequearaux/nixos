@@ -2,9 +2,13 @@
   services.wpaperd = {
       enable = true;
       settings = {
-	eDP-1 = {
+	HDMI-A-1 = {
+		path = "${self}/wallpapers/main.jpg";
+      };
+	DP-2 = {
 		path = "${self}/wallpapers/main.jpg";
       };
     };
 };
 }
+

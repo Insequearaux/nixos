@@ -58,6 +58,8 @@
     };
     extraHosts = ''
     10.1.224.83 clay
+    10.225.35.124 girl-in-shell
+    10.2225.90.40 kurisu
     '';
   };
   security.rtkit.enable = true;
