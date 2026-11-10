@@ -1,7 +1,6 @@
 {pkgs, ...}:
 {
 
-
   wayland.windowManager.niri = {
 
     enable = true;	
@@ -15,13 +14,25 @@
       spawn-at-startup "systemctl restart --user swayidle"
       '';
     settings = {
+      _children = [
+    {
+      window-rule._children = [
+        {match._props = {app-id="Alacritty"; title="filePicker";};}
+        {open-floating = true;}
+      ];
+    }
 
+
+
+      ];
 
       binds = {
         "Mod+N" = {
           spawn = ["firefox"];
         };
-
+        "Mod+Shift+N" = {
+          spawn-sh = ["alacritty - e nvim"];
+        };
         "Mod+Period" = {
           spawn = ["emote"];
         };

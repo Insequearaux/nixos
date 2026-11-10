@@ -72,7 +72,11 @@
         package = pkgs.yaziPlugins.convert;
         setup = false;
       };
-      sudo = {
+       mount = {
+        package = pkgs.yaziPlugins.mount;
+        setup = false;
+      }; 
+       sudo = {
         package = pkgs.yaziPlugins.sudo;
         setup = false;
       };
