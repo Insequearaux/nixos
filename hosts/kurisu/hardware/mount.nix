@@ -19,13 +19,13 @@ in
     inputs.agenix.nixosModules.default
   ];
 
-  age = {
-    secrets.etspasswd = {
-    file = "${inputs.self}/secrets/etspasswd.age";
-    owner = "taylor";
-  };
-    identityPaths = ["/home/taylor/.ssh/id_ed25519"];
-  };
+#  age = {
+#    secrets.etspasswd = {
+#    file = "${inputs.self}/secrets/etspasswd.age";
+#    owner = "taylor";
+#  };
+#    identityPaths = ["/home/taylor/.ssh/id_ed25519"];
+#  };
 #fileSystems."/mnt/udrive" = defineMount "//nasstore2/other/ets-c837622227/home" etspasswd;
 
 }

@@ -3,6 +3,9 @@
   powerManagement.enable = true;
   services = {
   blueman.enable = true;
+  flatpak = {
+    enable = true;
+  };
 
     upower = {
       enable = true;

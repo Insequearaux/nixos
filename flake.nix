@@ -21,6 +21,7 @@
     };
     home-manager.url = "github:nix-community/home-manager";
     my-home-manager.url = "path:./home-manager/";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
     self = {};
   };
 

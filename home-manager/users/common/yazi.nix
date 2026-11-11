@@ -1,4 +1,4 @@
-{pkgs,...}:{
+{pkgs,inputs,...}:{
   programs.yazi = {
    enable = true;
    settings = {
@@ -98,6 +98,10 @@
       };
       bypass = {
         package = pkgs.yaziPlugins.bypass;
+        setup = false;
+      };
+      yazi-picker = {
+        package = inputs.yazi-picker.packages.${pkgs.system}.plugin;
         setup = false;
       };
    };

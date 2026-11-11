@@ -5,6 +5,7 @@
       inputs.nix-index-database.nixosModules.default
       #inputs.waveforms.nixosModule
       #inputs.agenix.nixosModules.default
+      inputs.nix-flatpak.nixosModules.nix-flatpak
   ];
   environment.systemPackages = with pkgs; [
     slack
@@ -17,7 +18,12 @@
     fastfetch
   ];
 
+  services.flatpak.packages = [
+  "net.waterfox.waterfox"
+  ];
+
   programs = {
+
     steam = {
       enable = true;
     };

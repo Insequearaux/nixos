@@ -25,6 +25,7 @@ in
       xdg-desktop-portal
       brightnessctl
       xdg-desktop-portal-termfilechooser
+      #thunar
       ];
     variables = {
       NH_FLAKE = "/etc/nixos";
@@ -54,12 +55,14 @@ in
     };
     niri = {
       enable = true;
-      useNautilus = false;
+      #useNautilus = false;
     };
     zsh = {
       enable = true;
+      enableGlobalCompInit = false;
     };
   };
+  users.defaultUserShell = pkgs.zsh;
 
 
   fonts = {

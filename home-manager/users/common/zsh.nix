@@ -1,23 +1,27 @@
 {
 programs.zsh = {
 	enable = true;
-        enableCompletion = false;
-        autosuggestion.enable = false;
-        syntaxHighlighting.enable = false;
+        enableCompletion = true;
+        autosuggestion.enable = true;
+        syntaxHighlighting.enable = true;
 
         shellAliases = {
-
-
 
         };
         
         zplug = {
-          enable = true;
+          enable = false;
           plugins =  [
             #{ name = "zsh-users/zsh-autosuggestions"; }
           ];
         };
-	initContent = "fastfetch\nexport EDITOR=nvim\nPS1=\"[%n@%m:%~]$ \"";
+	initContent = ''
+          fastfetch
+          export EDITOR=nvim
+          PS1="[%n@%m:%~]$ "
+          bindkey "^[[1;5C" forward-word
+          bindkey "^[[1;5D" backward-word
+          '';
 };
 
 }

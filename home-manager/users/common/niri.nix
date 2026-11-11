@@ -28,10 +28,10 @@
 
       binds = {
         "Mod+N" = {
-          spawn = ["firefox"];
+          spawn = ["floorp"];
         };
         "Mod+Shift+N" = {
-          spawn-sh = ["alacritty - e nvim"];
+          spawn-sh = ["alacritty -e nvim"];
         };
         "Mod+Period" = {
           spawn = ["emote"];
