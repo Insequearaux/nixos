@@ -36,16 +36,14 @@
     in
     {
       enable = true;
-      theme = spicePkgs.themes.bloom;
-      colorScheme = "violet";
+      theme = spicePkgs.themes.defaultDynamic;
+      colorScheme = "Dark-Base";
       enabledExtensions = with spicePkgs.extensions; [
-
+        
       ];
       enabledCustomApps = with spicePkgs.apps; [
         lyricsPlus
       ];
-
-
     };
     thunderbird = {
       enable = true;
