@@ -3,16 +3,17 @@
 
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
-    home_manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager";
     import-tree.url = "github:denful/import-tree";
     flake-parts.url = "github:hercules-ci/flake-parts"; 
+    yazi-picker.url = "github:kkllffaa/yazi-picker";
     self = {};
   };
 
 
   outputs = inputs: 
 let
-  mkUser = username: inputs.home_manager.lib.homeManagerConfiguration {
+  mkUser = username: inputs.home-manager.lib.homeManagerConfiguration {
     pkgs = inputs.nixpkgs.legacyPackages."x86_64-linux"; 
     modules = [
       (inputs.import-tree ./users/common)
@@ -20,6 +21,7 @@ let
     ];
     extraSpecialArgs = {
     self = inputs.self;
+    inherit inputs;
   };
   };
 in

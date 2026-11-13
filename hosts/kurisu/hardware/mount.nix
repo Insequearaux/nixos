@@ -8,13 +8,16 @@ let
       "credentials=${passwd}"
       "uid=1000"
       "gid=100"
-      "noauto"
+      #"noauto"
       "nofail"
-      "x-systemd.idle-timeout=60"
+      "x-systemd.automount"
+      "x-systemd.device-timeout=5s"
+      "x-systemd.idle-timeout=60min"
     ];
   };
 in
 {
+  systemd.network.wait-online.enable = false;
   imports = [
     inputs.agenix.nixosModules.default
   ];
@@ -24,8 +27,7 @@ in
     file = "${inputs.self}/secrets/etspasswd.age";
     owner = "taylor";
   };
-    identityPaths = ["/home/taylor/.ssh/id_ed25519"];
   };
-#fileSystems."/mnt/udrive" = defineMount "//nasstore2/other/ets-c837622227/home" etspasswd;
+fileSystems."/mnt/udrive" = defineMount "//nasstore2.engr.colostate.edu/other/ets-c837622227/home" etspasswd;
 
 }

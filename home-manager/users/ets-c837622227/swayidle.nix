@@ -3,7 +3,7 @@
   services.swayidle = 
     let 
     swaylock = "${pkgs.swaylock-effects}/bin/swaylock";
-  niri = "${pkgs.niri}/bin/niri";
+    niri = "${pkgs.niri}/bin/niri";
     lock = swaylock;
     monitorsOn = "${nm} power-on-monitors";
     monitorsOff = "${nm} power-off-monitors";
@@ -15,12 +15,11 @@
     systemdTargets = [
       "graphical.target"
       "graphical-session.target"
-
     ];
       events = {     
-        "before-sleep" = "${lock}";
+        "before-sleep" = lock;
         "lock" = lock;
-        "after-resume" = monitorsOn;
+        #"after-resume" = monitorsOn;
       };
       timeouts = [
         {
@@ -30,15 +29,15 @@
         {
           timeout = 1800;
           command = monitorsOff;
-          resumeCommand = monitorsOn;
+          #resumeCommand = monitorsOn;
         }
       ];
     };
-    systemd.user.services.swayidle = {
-      Unit = {
-        After = [ "graphical-session.target" ];
-        PartOf = [ "graphical-session.target" ];
-        WantedBy = [ "graphical-session.target" ];
-      };
-    };
+#    systemd.user.services.swayidle = {
+#      Unit = {
+#        After = [ "graphical-session.target" ];
+#        PartOf = [ "graphical-session.target" ];
+#        WantedBy = [ "graphical-session.target" ];
+#      };
+#    };
   }

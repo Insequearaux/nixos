@@ -1,8 +1,51 @@
+
+{pkgs,...}:
 {
-  wayland.windowManager.niri.settings = {
+
+  wayland.windowManager.niri = {
+    settings = {
+      _children = [
+      {
+        output = {
+
+          _args = ["DP-2"];
+          _children = [
+
+          {mode = "1920x1080@60";}
+          {scale = 1.0;}
+          {position = {
+                        _props = {x=0;y=0;}; 
+                      };}
+          ];
+        };
+      }{
+        output = {
+
+          _args = ["HDMI-A-1"];
+          _children = [
+
+          {mode = "1366x768@59.70";}
+          {scale = 0.8;}
+          {position = {
+                        _props = {x=1920;y=0;}; 
+                      };}
+          ];
+        };
+      }    {
+      window-rule._children = [
+        {match._props = {app-id="Alacritty";};}
+        {default-column-width = {proportion = 0.540;};}
+      ];
+    }
+    ];
     environment = {
-      NFSM_SOCKET = "/run/user/1000/nfsm.sock";
+      NFSM_SOCKET = "/run/user/1001/nfsm.sock";
       EDITOR = "nvim";
     };
+    };
+    extraConfig = ''
+      spawn-at-startup "waylandar-widget"
+      '';
   };
-}
+  }
+
