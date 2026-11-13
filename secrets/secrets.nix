@@ -5,8 +5,13 @@ let
   epicyurimomentsandaura = "";
 in
 {
+<<<<<<< HEAD
 "etspasswd.age".publicKeys = [ ets-c837622227 taylor ];
 "engrpasswd.age".publicKeys = [ ets-c837622227 taylor ];
 "wg-csu-preshared-key.age".publicKeys = [ taylor ets-c837622227 ];
 "wg-csu-private-key.age".publicKeys = [ taylor ets-c837622227 ];
+=======
+"etspasswd.age".publicKeys = [ ets-c837622227 taylor epicyurimomentsandaura ];
+"engrpasswd.age".publicKeys = [ ets-c837622227 ];
+>>>>>>> aae497abd287363128d60c8f9ae18db09e39a473
 }
