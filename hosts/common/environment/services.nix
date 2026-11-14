@@ -16,10 +16,7 @@
     };
     power-profiles-daemon.enable = true;
 
-<<<<<<< HEAD
     gnome.gnome-keyring.enable = lib.mkForce false;
-=======
->>>>>>> aae497abd287363128d60c8f9ae18db09e39a473
 
     openssh = {
       enable = true;

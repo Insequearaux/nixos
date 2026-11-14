@@ -8,7 +8,7 @@
     extraConfig = ''
       include "${./niri.kdl}" 
       spawn-at-startup "blueman-applet"
-      spawn-sh-at-startup "nfsm &"
+      spawn-at-startup "nfsm"
       prefer-no-csd
       spawn-sh-at-startup "wl-paste --watch cliphist store"
       spawn-at-startup "systemctl restart --user swayidle"

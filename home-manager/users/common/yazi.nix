@@ -1,14 +1,29 @@
 {pkgs,inputs,...}:{
   programs.yazi = {
-   enable = true;
-   settings = {
-     mgr = {
-     show_hidden = true;
-     };
-   };
-   keymap = {
-    mgr = {
-     prepend_keymap = [
+    enable = true;
+    settings = {
+      mgr = {
+        show_hidden = true;
+      };
+      opener = {
+        libreoffice = [
+        {
+          run = ''libreoffice %s'';
+          orphan = true;
+          desc = "LibreOffice";
+        }
+        ];
+      };
+      open = {
+        prepend_rules = [
+          { mime = "applications/vnd.oasis.opendocument.text"; use = "ibreoffice"; }
+        { url = "*.odt"; use = "libreoffice"; }
+        ];
+      };
+    };
+    keymap = {
+      mgr = {
+        prepend_keymap = [
         {
           on = ["T"];
           run = "shell \'alacritty --working-directory \"$PWD\" &\' --orphan";
@@ -33,15 +48,15 @@
           run = "plugin jump-to-char";
           desc = "jump to char";
         }
-     ];
+        ];
+      };
     };
-   };
-   plugins = {
+    plugins = {
       git = {
         package = pkgs.yaziPlugins.git;
         setup = true;
       };
-       mediainfo = {
+      mediainfo = {
         package = pkgs.yaziPlugins.mediainfo;
         setup = true;
       };     zoom = {
@@ -72,11 +87,11 @@
         package = pkgs.yaziPlugins.convert;
         setup = false;
       };
-       mount = {
+      mount = {
         package = pkgs.yaziPlugins.mount;
         setup = false;
       }; 
-       sudo = {
+      sudo = {
         package = pkgs.yaziPlugins.sudo;
         setup = false;
       };
@@ -104,7 +119,7 @@
         package = inputs.yazi-picker.packages.${pkgs.system}.plugin;
         setup = false;
       };
-   };
-   };
-  }
+    };
+  };
+                  }
 
