@@ -20,8 +20,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager.url = "github:nix-community/home-manager";
-    my-home-manager.url = "path:./home-manager/";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+    korimer-flake = {
+      url = "github:Korimer/nix-s-os/unden";
+      inputs.nfsm-flake.follows = "nfsm-flake";
+    };
+    bootvine = {
+      url = "git+https://codeberg.org/wvhulle/bootvine";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    yazi-picker.url = "github:kkllffaa/yazi-picker";
+    matugen = {
+      url = "github:InioX/matugen";
+    };
     self = {};
   };
 
@@ -32,15 +43,20 @@
 
       imports = [
         inputs.easy-hosts.flakeModule
-        inputs.home-manager.flakeModules.home-manager
+          inputs.home-manager.flakeModules.home-manager
       ];
 
-     flake = {homeConfigurations = inputs.my-home-manager.homeConfigurations;};
+      flake = {
+        inherit inputs;
+      };
       easy-hosts = {
         shared = {
           modules = [
             (inputs.import-tree ./hosts/common)
           ];
+          specialArgs = {
+            self = inputs.self;
+          };
         };
         hosts =  {
           clay = {

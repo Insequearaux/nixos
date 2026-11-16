@@ -23,13 +23,13 @@
       };
       timeouts = [
         {
-          timeout = 600;
-          command = "${lock} --grace 5 --fade-in 1";
+          timeout = 500;
+          command = "sleep 2m && " + monitorsOff;
+          #resumeCommand = monitorsOn;
         }
         {
-          timeout = 1800;
-          command = monitorsOff;
-          #resumeCommand = monitorsOn;
+          timeout = 600;
+          command = "${lock} --grace 5 --fade-in 1";
         }
       ];
     };

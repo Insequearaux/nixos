@@ -36,18 +36,18 @@
       styling = {
         theme-provider = "matugen";
         theming-monitor = "DP-4";
-        palette = {
-          bg = "#1e2030";
-          surface = "#222436";
-          elevated = "#2f334d";
-          fg = "#c8d3f5";
-          fg-muted = "#828bb8";
-          primary = "#82aaff";
-          red = "#ff757f";
-          yellow = "#ffc777";
-          green = "#c3e88d";
-          blue = "#86e1fc";
-        };
+      #  palette = {
+      #    bg = "#1e2030";
+      #    surface = "#222436";
+      #    elevated = "#2f334d";
+      #    fg = "#c8d3f5";
+      #    fg-muted = "#828bb8";
+      #    primary = "#82aaff";
+      #    red = "#ff757f";
+      #    yellow = "#ffc777";
+      #    green = "#c3e88d";
+      #    blue = "#86e1fc";
+      #  };
       };
       modules = {
         battery = {
