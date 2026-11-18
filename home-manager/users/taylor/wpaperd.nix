@@ -3,7 +3,7 @@
       enable = true;
       settings = {
 	eDP-1 = {
-		path = "${self}/wallpapers/main.jpg";
+		path = "${self}/home-manager/wallpapers/landscape/main.jpg";
       };
     };
 };

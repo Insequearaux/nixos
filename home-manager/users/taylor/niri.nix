@@ -3,14 +3,10 @@
     _children = [
     {
       window-rule._children = [
-        {match._props = {app-id="Alacritty";};}
+        {match._props = {app-id="kitty";};}
         {default-column-width = {proportion = 0.6666;};}
       ];
     }
     ];
-    environment = {
-      NFSM_SOCKET = "/run/user/1000/nfsm.sock";
-      EDITOR = "nvim";
-    };
   };
 }

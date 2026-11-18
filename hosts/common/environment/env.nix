@@ -3,6 +3,9 @@ let
 system = pkgs.system;
 in
 {
+  imports = [
+    inputs.korimer-flake.nixosModules.nfsm-wrapper
+  ];
   environment = {
     systemPackages = with pkgs; [
       home-manager
@@ -19,8 +22,6 @@ in
       #kdePackages.dolphin
       cifs-utils
       inputs.agenix.packages.x86_64-linux.default
-      inputs.nfsm-flake.packages.${system}.nfsm
-      inputs.nfsm-flake.packages.${system}.nfsm-cli
       jdk
       xdg-desktop-portal
       brightnessctl
@@ -55,6 +56,7 @@ in
     };
     niri = {
       enable = true;
+      nfsm.enable = true;
       #useNautilus = false;
     };
     zsh = {

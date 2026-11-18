@@ -20,8 +20,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager.url = "github:nix-community/home-manager";
-    my-home-manager.url = "path:./home-manager/";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+    korimer-flake = {
+      url = "github:Korimer/nix-s-os/unden";
+      inputs.nfsm-flake.follows = "nfsm-flake";
+    };
+    bootvine = {
+      url = "git+https://codeberg.org/wvhulle/bootvine";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    yazi-picker.url = "github:kkllffaa/yazi-picker";
+    matugen = {
+      url = "github:InioX/matugen";
+    };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     self = {};
   };
 
@@ -34,13 +49,38 @@
         inputs.easy-hosts.flakeModule
         inputs.home-manager.flakeModules.home-manager
       ];
+      flake = self: 
+      let
+      mkUser = username: inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = inputs.nixpkgs.legacyPackages."x86_64-linux"; 
+      modules = [
+        (inputs.import-tree ./home-manager/users/common)
+        (inputs.import-tree ./home-manager/users/${username})
+      ];
+      extraSpecialArgs = {
+        self = inputs.self;
+        inherit inputs;
+      };
+  };
+      in
+      {
+        inherit inputs;
+        inherit self;
+        homeConfigurations = {
+          "ets-c837622227@clay" = mkUser "ets-c837622227";
+          "taylor@kurisu" = mkUser "taylor";
+	  "epicyurimomentsandaura@girl-in-shell" = mkUser "epicyurimomentsandaura";
+	};
+      };
 
-     flake = {homeConfigurations = inputs.my-home-manager.homeConfigurations;};
       easy-hosts = {
         shared = {
           modules = [
             (inputs.import-tree ./hosts/common)
           ];
+          specialArgs = {
+            self = inputs.self;
+          };
         };
         hosts =  {
           clay = {

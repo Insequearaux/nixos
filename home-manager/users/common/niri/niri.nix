@@ -14,6 +14,9 @@
       spawn-at-startup "systemctl restart --user swayidle"
       '';
     settings = {
+    environment = {
+      EDITOR = "nvim";
+    };
       _children = [
     {
       window-rule._children = [
@@ -31,7 +34,7 @@
           spawn = ["floorp"];
         };
         "Mod+Shift+N" = {
-          spawn-sh = ["alacritty -e nvim"];
+          spawn-sh = ["kitty -e nvim"];
         };
         "Mod+Period" = {
           spawn = ["emote"];
@@ -43,7 +46,7 @@
           spawn-sh = ["cliphist list | rofi -dmenu | cliphist decode | wl-copy"];#["rofi -modi clipboard:./rofi-cliphist -show clipboard -show-icons"];
         };
         "Mod+E" = {
-          spawn-sh = ["alacritty -e yazi"];
+          spawn-sh = ["kitty -e yazi"];
         };
         "Mod+Space" = {
           spawn = ["rofi" "-show" "drun"];

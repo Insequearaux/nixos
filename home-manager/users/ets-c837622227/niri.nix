@@ -61,15 +61,11 @@
       }
     {
       window-rule._children = [
-        {match._props = {app-id="Alacritty";};}
+        {match._props = {app-id="kitty";};}
         {default-column-width = {proportion = 0.540;};}
       ];
     }
     ];
-    environment = {
-      NFSM_SOCKET = "/run/user/1529883988/nfsm.sock";
-      EDITOR = "nvim";
-    };
     };
     extraConfig = ''
       spawn-at-startup "waylandar-widget"

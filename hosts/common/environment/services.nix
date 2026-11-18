@@ -1,11 +1,15 @@
-{pkgs,lib,...}:
+{pkgs,inputs,lib,...}:
 {
+  imports = [
+    inputs.bootvine.nixosModules.default
+  ];
   powerManagement.enable = true;
   services = {
-  blueman.enable = true;
-  flatpak = {
-    enable = true;
-  };
+    bootvine.enable = true;
+    blueman.enable = true;
+    flatpak = {
+      enable = true;
+    };
 
     upower = {
       enable = true;
@@ -31,33 +35,33 @@
     xserver.enable = true;
     displayManager.sddm.enable = true;
 
-  # Configure keymap in X11
- xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
+    # Configure keymap in X11
+    xserver.xkb = {
+      layout = "us";
+      variant = "";
+    };
 
-  # Enable CUPS to print documents.
-  printing.enable = true;
+    # Enable CUPS to print documents.
+    printing.enable = true;
 
-  # Enable sound with pipewire.
-  pulseaudio.enable = false;
+    # Enable sound with pipewire.
+    pulseaudio.enable = false;
 
-  pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    # jack.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      # jack.enable = true;
 
-   
-  };
- # mtr.enable = true;
- # gnupg.agent = {
- #    enable = true;
- #    enableSSHSupport = true;
- # };
+
+    };
+    # mtr.enable = true;
+    # gnupg.agent = {
+      #    enable = true;
+      #    enableSSHSupport = true;
+      # };
 
   };
   networking = {
@@ -68,28 +72,28 @@
       allowedTCPPorts = [22000 3389];
     };
     extraHosts = ''
-    10.1.224.83 clay
-    10.225.35.124 girl-in-shell
-    10.2225.90.40 kurisu
-    '';
+      10.1.224.83 clay
+      10.225.35.124 girl-in-shell
+      10.2225.90.40 kurisu
+      '';
   };
   security.rtkit.enable = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
 
-    # Use latest kernel.
+  # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    # Configure network proxy if necessary
+    # networking.proxy.default = "http://user:password@proxy:port/";
+    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
- 
-  # Set your time zone.
-  time.timeZone = "America/Denver";
+
+    # Set your time zone.
+    time.timeZone = "America/Denver";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
