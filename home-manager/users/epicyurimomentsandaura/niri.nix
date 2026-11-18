@@ -25,7 +25,7 @@
           _children = [
 
           {mode = "1366x768@59.70";}
-          {scale = 0.8;}
+          {scale = 1.0;}
           {position = {
                         _props = {x=1920;y=0;}; 
                       };}

@@ -21,7 +21,7 @@
         };
         ".config" = {
           path = "~/.config";
-          devices = ["clay" "kurisu"];
+          devices = ["clay" "kurisu" "girl-in-shell"];
           id = "dotconfig";
           ignorePatterns = [
           "!/nvim"
@@ -30,7 +30,7 @@
         };
         "nixos" = {
           path = "/etc/nixos";
-          devices = ["clay" "kurisu"];
+          devices = ["clay" "kurisu" "girl-in-shell"];
           id = "etcnixoscfg";
         };
       };

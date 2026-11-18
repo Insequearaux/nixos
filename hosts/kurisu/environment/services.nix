@@ -14,12 +14,14 @@
         "pcie_port_pm=off"
     ];
   };
+
   systemd.sleep = {
     settings.Sleep = { 
     HibernateDelaySec = "1h"; 
     SuspendState = "mem";
   };
   };
+
   security.pam.services = {
     sudo.fprintAuth = true;
     swaylock = {

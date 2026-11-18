@@ -19,7 +19,7 @@
   ];
 
   services.flatpak.packages = [
-  "net.waterfox.waterfox"
+  #"net.waterfox.waterfox"
   ];
 
   programs = {
@@ -28,7 +28,7 @@
       enable = true;
     };
     firefox = {
-      enable = true;
+      enable = false;
     };
     spicetify = 
     let

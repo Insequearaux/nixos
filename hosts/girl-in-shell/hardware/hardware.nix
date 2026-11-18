@@ -12,6 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.resumeDevice = "/dev/disk/by-label/adachi";
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/66c967c8-4995-46bd-ba23-5893256124ab";
@@ -24,7 +25,22 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  swapDevices = [ ];
+  fileSystems."/mnt/reina" =
+    { label = "reina";
+      fsType = "btrfs";
+    };
+  fileSystems."/mnt/shimamura" =
+    { label = "shimamura";
+      fsType = "btrfs";
+    };
+  fileSystems."/mnt/kumiko" =
+    { label = "kumiko";
+      fsType = "ntfs";
+    };
+  swapDevices = [ {
+    device = "/var/lib/swapfile";
+    size = 48*1024;
+  }];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
