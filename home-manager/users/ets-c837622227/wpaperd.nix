@@ -2,6 +2,7 @@
   services.wpaperd = {
       enable = true;
       settings = {
+        #exec = "../common/wpaperd-matugen-hook.sh";
         DP-5 = {
           path = "${self}/home-manager/wallpapers/landscape/main.jpg";
         };

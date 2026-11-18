@@ -33,6 +33,7 @@ options.myHomeUsers = lib.mkOption {
       userConfigs = builtins.listToAttrs ( map setNormalUser allusers );
     in
       userConfigs;
+
     config.home-manager.extraSpecialArgs = {
       inputs = inputs;
       self = self;

@@ -3,9 +3,9 @@
   programs.kitty = {
   enable = true;
   settings = {
+    enable_audio_bell = false;
     background_opacity = "0.00";
     dynamic_background_opacity = true;
-
   };
   };
 }

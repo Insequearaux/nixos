@@ -23,12 +23,11 @@
       timeouts = [
         {
           timeout = 180;
-          command = "${lock} --grace 5 --fade-in 1";
+          command = "${lock} --grace 5 --fade-in 1 -f";
         }
         {
           timeout = 300;
           command = monitorsOff;
-          resumeCommand = monitorsOn;
         }
         {
           timeout = 600;
@@ -36,11 +35,11 @@
         }
       ];
     };
-    systemd.user.services.swayidle = {
-      Unit = {
-        After = [ "graphical-session.target" ];
-        PartOf = [ "graphical-session.target" ];
-        WantedBy = [ "graphical-session.target" ];
-      };
-    };
+   # systemd.user.services.swayidle = {
+   #   Unit = {
+   #     After = [ "graphical-session.target" ];
+   #     PartOf = [ "graphical-session.target" ];
+   #     WantedBy = [ "graphical-session.target" ];
+   #   };
+   # };
   }

@@ -5,8 +5,6 @@ in
 {
   imports = [
     inputs.korimer-flake.nixosModules.nfsm-wrapper
-    inputs.matugen.nixosModules.default
-    inputs.home-manager.nixosModules.default
   ];
   environment = {
     systemPackages = with pkgs; [

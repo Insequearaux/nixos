@@ -33,6 +33,10 @@
     matugen = {
       url = "github:InioX/matugen";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     self = {};
   };
 
@@ -43,12 +47,32 @@
 
       imports = [
         inputs.easy-hosts.flakeModule
-          inputs.home-manager.flakeModules.home-manager
+        inputs.home-manager.flakeModules.home-manager
       ];
-
-      flake = {
+      flake = self: 
+      let
+      mkUser = username: inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = inputs.nixpkgs.legacyPackages."x86_64-linux"; 
+      modules = [
+        (inputs.import-tree ./home-manager/users/common)
+        (inputs.import-tree ./home-manager/users/${username})
+      ];
+      extraSpecialArgs = {
+        self = inputs.self;
         inherit inputs;
       };
+  };
+      in
+      {
+        inherit inputs;
+        inherit self;
+        homeConfigurations = {
+          "ets-c837622227@clay" = mkUser "ets-c837622227";
+          "taylor@kurisu" = mkUser "taylor";
+	  "epicyurimomentsandaura@girl-in-shell" = mkUser "epicyurimomentsandaura";
+	};
+      };
+
       easy-hosts = {
         shared = {
           modules = [
