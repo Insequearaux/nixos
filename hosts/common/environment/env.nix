@@ -26,6 +26,8 @@ in
       xdg-desktop-portal
       brightnessctl
       xdg-desktop-portal-termfilechooser
+      btop
+      htop
       #thunar
       ];
     variables = {

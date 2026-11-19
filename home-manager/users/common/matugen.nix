@@ -3,21 +3,12 @@
     inputs.matugen.nixosModules.default
   ];
   programs.matugen = {
-    enable = true;
+    enable = false;
+    package = pkgs.matugen;
     variant = "dark";
-    jsonFormat = "hex";
-    #palette = "default";   
-
-      config = {
-        wallpaper.set = false;
-        reload_apps = true;
-        reload_apps_list = {
-          kitty = true;
-          wayle = true;
-        };
-      };
-  templates = {
-
-  };
+    templates.base16 = {
+      input_path = "./scheme.yaml";
+      output_path = "./matugenscheme.yaml";
+    };   
   };           
            }

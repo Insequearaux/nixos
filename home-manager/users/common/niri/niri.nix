@@ -6,7 +6,12 @@
     enable = true;	
 
     extraConfig = ''
-      include "${./niri.kdl}" 
+      include "${./animations.kdl}" 
+      include "${./binds.kdl}" 
+      include "${./input.kdl}" 
+      include "${./layout.kdl}" 
+      include "${./rules.kdl}" 
+      include "${./colors.kdl}" 
       spawn-at-startup "blueman-applet"
       spawn-at-startup "nfsm"
       prefer-no-csd
@@ -14,6 +19,9 @@
       spawn-at-startup "systemctl restart --user swayidle"
       '';
     settings = {
+      screenshot-path  = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
+
+    
     environment = {
       EDITOR = "nvim";
     };

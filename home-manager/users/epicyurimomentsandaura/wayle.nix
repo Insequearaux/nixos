@@ -1,14 +1,15 @@
-{pkgs,...}:{
+{pkgs,lib,...}:{
   services.wayle = {
     enable = true;
     package = pkgs.wayle;
     settings = {
       bar = {
-        background-opacity = 40;
+        background-opacity = lib.mkForce 40;
         rounding = "full";
         shadow = "drop";
+        scale = 0.75;
         button-variant = "basic";
-        button-bg-opacity = 0;
+        button-bg-opacity = lib.mkForce 0;
         layout = [
         {
           monitor = "*";
@@ -32,20 +33,8 @@
         ];
       };
       styling = {
-        theme-provider = "matugen";
+        theme-provider = "stylix";
         theming-monitor = "DP-4";
-        palette = {
-          bg = "#1e2030";
-          surface = "#222436";
-          elevated = "#2f334d";
-          fg = "#c8d3f5";
-          fg-muted = "#828bb8";
-          primary = "#82aaff";
-          red = "#ff757f";
-          yellow = "#ffc777";
-          green = "#c3e88d";
-          blue = "#86e1fc";
-        };
       };
       modules = {
         battery = {

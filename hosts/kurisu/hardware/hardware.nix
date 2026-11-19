@@ -11,7 +11,7 @@
 
 
   boot = {
-
+  loader.systemd-boot.configurationLimit = 8;
   initrd.availableKernelModules = [ "nvme" "xhci_pci" ];
   initrd.kernelModules = [ ];
   kernelModules = [ "kvm-amd" ];
@@ -26,7 +26,7 @@
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/B95B-B532";
+    { device = "/dev/disk/by-label/BOOT2";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };

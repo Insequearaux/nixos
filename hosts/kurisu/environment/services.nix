@@ -15,11 +15,14 @@
     ];
   };
 
-  systemd.sleep = {
+  systemd = {
+    services.NetworkManager-wait-online.enable = false;
+    sleep = {
     settings.Sleep = { 
     HibernateDelaySec = "1h"; 
     SuspendState = "mem";
   };
+    };
   };
 
   security.pam.services = {

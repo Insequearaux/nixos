@@ -28,7 +28,6 @@
         {
           timeout = 300;
           command = monitorsOff;
-          resumeCommand = monitorsOn;
         }
         {
           timeout = 600;

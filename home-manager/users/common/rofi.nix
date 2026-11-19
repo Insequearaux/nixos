@@ -3,7 +3,7 @@
 
 programs.rofi = {
   enable = true;
-  theme = "purple";
+  #theme = "purple";
  
   package = pkgs.rofi;
   settings = {
