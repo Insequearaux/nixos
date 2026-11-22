@@ -1,14 +1,14 @@
-{pkgs,...}:{
+{pkgs,lib,...}:{
   services.wayle = {
     enable = true;
     package = pkgs.wayle;
     settings = {
       bar = {
-        background-opacity = 40;
+        background-opacity = lib.mkForce 40;
         rounding = "full";
         shadow = "drop";
         button-variant = "basic";
-        button-bg-opacity = 0;
+        button-bg-opacity = lib.mkForce 0;
         scale = 0.85;
         layout = [
         {
@@ -34,7 +34,7 @@
         ];
       };
       styling = {
-        theme-provider = "matugen";
+        theme-provider = "wayle";
         theming-monitor = "DP-4";
       #  palette = {
       #    bg = "#1e2030";

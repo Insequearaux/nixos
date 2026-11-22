@@ -33,7 +33,7 @@
         ];
       };
       styling = {
-        theme-provider = "stylix";
+        theme-provider = "wayle";
         theming-monitor = "DP-4";
       };
       modules = {

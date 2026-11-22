@@ -1,0 +1,5 @@
+[styling.palette]
+primary = "#a8c8ff"
+fg = "#a8c8ff"
+fg-muted = "#bdc7dc"
+elevated = "#111318"

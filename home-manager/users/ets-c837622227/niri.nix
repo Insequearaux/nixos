@@ -62,7 +62,7 @@
     {
       window-rule._children = [
         {match._props = {app-id="kitty";};}
-        {default-column-width = {proportion = 0.540;};}
+        {default-column-width = {proportion = 0.600;};}
       ];
     }
     ];

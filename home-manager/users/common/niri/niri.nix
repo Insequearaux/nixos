@@ -11,7 +11,6 @@
       include "${./input.kdl}" 
       include "${./layout.kdl}" 
       include "${./rules.kdl}" 
-      include "${./colors.kdl}" 
       spawn-at-startup "blueman-applet"
       spawn-at-startup "nfsm"
       prefer-no-csd
